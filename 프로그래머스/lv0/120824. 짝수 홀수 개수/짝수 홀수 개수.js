@@ -1,9 +1,4 @@
 function solution(num_list) {
-    let answer = [0,0]
-    for(let i of num_list){
-        if(i % 2 === 0){
-            answer[0] += 1
-        }else answer[1] += 1
-    }
-    return answer
+    return [ num_list.filter(x => x % 2 === 0).length,
+    num_list.filter(x => x % 2 !== 0).length ]
 }
