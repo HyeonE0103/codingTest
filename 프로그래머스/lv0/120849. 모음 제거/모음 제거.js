@@ -1,6 +1,3 @@
 function solution(my_string) {
-    return [...my_string].map( x => {
-        const string = new Set([ "a", "e", "i", "o", "u"])
-        if(string.has(x) === false) return x
-    }).join('')
+    return [...my_string].filter(x => !["a", "e", "i", "o", "u"].includes(x)).join('')
 }
