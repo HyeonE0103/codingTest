@@ -6,13 +6,16 @@
 //         else if(s[i] === 'y') num --;
 //     }
 //     if (num !== 0) return false
-//     else return true
-    
+//     else return true   
+// }
+
+// function solution(s){
+//     s = s.toLowerCase()
+//     return ([...s].reduce((acc, cur)=> cur === 'p' ? acc+= 1 : cur === 'y' ? acc-= 1 : acc , 0) === 0) 
 // }
 
 function solution(s){
     s = s.toLowerCase()
-    return ([...s].reduce((acc, cur)=> cur === 'p' ? acc+= 1 : cur === 'y' ? acc-= 1 : acc , 0) === 0)
-    
+    return (s.split('p').length - 1 === s.split('y').length - 1)
 }
 
