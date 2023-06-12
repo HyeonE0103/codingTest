@@ -14,8 +14,10 @@
 //     return ([...s].reduce((acc, cur)=> cur === 'p' ? acc+= 1 : cur === 'y' ? acc-= 1 : acc , 0) === 0) 
 // }
 
-function solution(s){
-    s = s.toLowerCase()
-    return (s.split('p').length - 1 === s.split('y').length - 1)
-}
+// function solution(s){
+//     s = s.toLowerCase()
+//     return (s.split('p').length - 1 === s.split('y').length - 1)
+// }
+
+const solution = s => s.toLowerCase().split('p').length - 1 === s.toLowerCase().split('y').length - 1
 
