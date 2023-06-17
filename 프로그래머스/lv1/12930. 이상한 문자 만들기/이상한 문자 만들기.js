@@ -5,9 +5,10 @@ function solution(s) {
         if(s[i] === " "){
             answer += " "
             num = 0
-        }else{
-            if(num%2===0) answer += s[i].toUpperCase()
-            else answer += s[i].toLowerCase()
+        }else if(num%2===0){
+            answer += s[i].toUpperCase()
+            num++
+        }else{answer += s[i].toLowerCase()
             num++
         }
     }
