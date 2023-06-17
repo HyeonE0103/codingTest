@@ -1,16 +1,7 @@
 function solution(s) {
-    let num = 0
-    let answer = ""
-    for(let i=0; i<s.length; i++){
-        if(s[i] === " "){
-            answer += " "
-            num = 0
-        }else if(num%2===0){
-            answer += s[i].toUpperCase()
-            num++
-        }else{answer += s[i].toLowerCase()
-            num++
-        }
-    }
-    return answer
+  return s.split(' ').map((a) => {
+    return a.split('').map((b, i) => {
+      return (i % 2 === 0) ? b.toUpperCase() : b.toLowerCase();
+    }).join('');
+  }).join(' ');
 }
