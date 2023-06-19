@@ -1,18 +1,20 @@
 function solution(answers) {
-    const person = [1,2,3,4,5]
-    const person2 = [2,1,2,3,2,4,2,5]
-    const person3 = [3,3,1,1,2,2,4,4,5,5]
+    const a = [1,2,3,4,5]
+    const b = [2,1,2,3,2,4,2,5]
+    const c = [3,3,1,1,2,2,4,4,5,5]
     
-    let nums = answers.reduce(([n,n2,n3],cur,i)=>{
-        if(person[i%5] === cur) [n++,n2,n3]
-        if(person2[i%8] === cur) [n,n2++,n3]
-        if(person3[i%10] === cur) [n,n2,n3++]
-        return [n,n2,n3]
-    },[0,0,0])   
+    let nums = [0,0,0]
+    let answer = []
     
-    let winner = []
-    for(let i=0; i<nums.length; i++){
-        if(nums[i] === Math.max(...nums)) winner.push(i+1)
+    for(let i=0; i<answers.length; i++){
+        if(a[i%5] === answers[i]) nums[0]++
+        if(b[i%8] === answers[i]) nums[1]++
+        if(c[i%10] === answers[i]) nums[2]++
     }
-    return winner
+    
+    for(let i = 0; i<3; i++){
+        if(nums[i] === Math.max(...nums)) answer.push(i+1)
+    }
+    
+    return answer
 }
