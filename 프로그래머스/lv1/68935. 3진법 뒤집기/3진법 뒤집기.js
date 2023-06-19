@@ -1,4 +1,3 @@
 function solution(n) {
-    num=parseInt(n, 10).toString(3).split("").reverse().join("")
-    return parseInt(num, 3)
+    return parseInt([...n.toString(3)].reverse().join("").toString(10),3)
 }
