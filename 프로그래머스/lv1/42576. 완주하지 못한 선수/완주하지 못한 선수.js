@@ -1,11 +1,4 @@
-function solution(participant, completion) {
-    // completion = completion.sort()
-    // return participant.sort().filter(x=>{
-    //     if(completion.indexOf(x) !== -1){
-    //         completion.splice(completion.indexOf(x),1)
-    //     }else return x
-    // }).join("")
-    
+function solution(participant, completion) {    
     participant = participant.sort()
     completion = completion.sort()
     
