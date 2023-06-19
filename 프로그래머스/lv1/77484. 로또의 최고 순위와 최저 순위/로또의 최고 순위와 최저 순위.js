@@ -1,11 +1,6 @@
 function solution(lottos, win_nums) {
-    let result = [7,7]
-    lottos.forEach(n=>{
-        if(win_nums.includes(n)){
-            result[0]--
-            result[1]--
-        }else if(n === 0) result[0]--
-    })
-    return result[0] === 7 ? [6,6] : result[1] === 7 ? [result[0],6] : result
+    rank = [6,6,5,4,3,2,1]
+    let [count, zero] = lottos.reduce(([count, zero],cur) => win_nums.includes(cur) ? [++count, ++zero] : cur === 0 ? [++count, zero]:[count,zero],[0,0])
     
+    return [rank[count], rank[zero]]
 }
