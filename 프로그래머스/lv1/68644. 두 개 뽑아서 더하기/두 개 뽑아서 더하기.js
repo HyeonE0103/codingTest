@@ -1,7 +1,8 @@
 function solution(numbers) {
     let set = new Set();
-    for (let i = 0; i<numbers.length-1; i++){
-        for(let j = i+1; j<numbers.length; j++){
+    let num = numbers.length
+    for (let i = 0; i<num-1; i++){
+        for(let j = i+1; j<num; j++){
             set.add(numbers[i]+numbers[j])
         }
     }
