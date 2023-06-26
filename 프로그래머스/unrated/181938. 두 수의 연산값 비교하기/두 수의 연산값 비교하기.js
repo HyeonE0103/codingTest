@@ -1,5 +1,3 @@
 function solution(a, b) {
-    const n = (a.toString() + b.toString())
-    const n2 = 2 * a * b
-    return Math.max(n, n2)
+    return Math.max(a.toString() + b.toString(), 2 * a * b)
 }
