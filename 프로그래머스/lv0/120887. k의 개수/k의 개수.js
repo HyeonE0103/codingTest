@@ -1,9 +1,7 @@
 function solution(i, j, k) {
-    let result =0
+    let s=""
     for(let n=i; n<=j; n++){
-        for( let m=0; m<=n.toString().length; m++){
-            if(n.toString()[m] === k.toString()) result ++
-        }
+        s+=n
     }
-    return result
+    return s.split(k).length-1
 }
