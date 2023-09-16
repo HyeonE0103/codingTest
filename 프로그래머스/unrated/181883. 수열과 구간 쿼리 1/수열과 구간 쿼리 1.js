@@ -1,8 +1,4 @@
 function solution(arr, queries) {
-    for(let i=0; i<queries.length; i++){
-        for(let j=queries[i][0]; j<=queries[i][1]; j++){
-            arr[j]++
-        }
-    }
+    for (let [s,e] of queries) for(let i=s; i<=e; i++) arr[i]++
     return arr
 }
