@@ -1,7 +1,5 @@
 function solution(s) {
-    let result = ""
-    for(let i=0; i<s.length; i++){
-        if(s.indexOf(s[i]) === s.lastIndexOf(s[i])) result+=s[i]
-    }
-    return result.split("").sort().join("")
+    let result = []
+    for(let i of s) if(s.indexOf(i) === s.lastIndexOf(i)) result.push(i)
+    return result.sort().join("")
 }
