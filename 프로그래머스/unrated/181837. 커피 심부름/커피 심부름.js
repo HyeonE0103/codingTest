@@ -1,7 +1,3 @@
 function solution(order) {
-    let result = 0
-    for(const el of order){
-        result += el.includes('cafelatte') ? 5000 : 4500
-    }
-    return result
+    return order.reduce((acc, cur) => cur.includes('cafelatte') ? acc+=5000 : acc+=4500, 0)
 }
