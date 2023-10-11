@@ -1,11 +1,5 @@
 function solution(num_list, n) {
-    var answer = [];
-    for(let i=0; i<num_list.length; i+=n){
-        let arr = []
-        for(let j=i; j<i+n; j++){
-            arr.push(num_list[j])
-        }
-        answer.push(arr)
-    }
+    let answer = [];
+    while(num_list.length) answer.push(num_list.splice(0,n))
     return answer
 }
