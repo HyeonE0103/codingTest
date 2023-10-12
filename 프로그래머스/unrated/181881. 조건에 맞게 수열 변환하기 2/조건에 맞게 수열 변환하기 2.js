@@ -1,21 +1,17 @@
 function solution(arr) {
-   let result = 0
-   let a = arr
-   let b = arr
-   while(true){
-       b = change(a)
-       result ++
-       if(JSON.stringify(a) === JSON.stringify(b)) return result-1
-       a = b
-   }
-}
-
-function change(arr){
-    let array = []
-    for(let i=0; i<arr.length; i++){
-       if(arr[i] >= 50 && arr[i]%2===0) array.push(arr[i]/2)
-        else if(arr[i] < 50 && arr[i]%2!==0) array.push(arr[i]*2+1)
-        else array.push(arr[i])
+    let result = 0
+    let before = [-1]
+    
+    while(JSON.stringify(arr) !== JSON.stringify(before)){
+        before = [...arr]
+        
+        arr = arr.map(x => {
+            if(x >= 50 && x%2 === 0) return x/2
+            else if(x < 50 && x%2 !== 0) return x*2+1
+            else return x
+        })
+        
+        result ++
     }
-    return array
+    return result-1
 }
