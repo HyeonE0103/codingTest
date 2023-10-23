@@ -1,5 +1,3 @@
 function solution(arr, k) {
-    arr = new Set(arr)
-    arr = Array.from(arr)
-    return arr.length > k ? arr.slice(0,k) : [...arr, ...Array(k-arr.length).fill(-1)]
+    return [...Array.from(new Set(arr)), ...new Array(k).fill(-1)].slice(0,k);
 }
