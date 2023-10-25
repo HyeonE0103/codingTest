@@ -1,10 +1,7 @@
 function solution(score) {
-    let result = []
     const ave = score.map(x=>(x[0]+x[1])/2)
     const sort = [...ave].sort((a,b) => b-a)
+    
+    return ave.map((x)=>sort.indexOf(x)+1)
 
-    for(let i=0; i<ave.length; i++){
-        result.push(sort.indexOf(ave[i])+1)
-    }
-    return result
 }
