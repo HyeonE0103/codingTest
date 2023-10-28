@@ -1,13 +1,3 @@
 function solution(n) {
-    let result = 1, i=1
-    let arr = []
-    while(i<n){
-        result++
-        if(result % 3 === 0 || result.toString().includes('3')){
-            
-        }else{
-            i++
-        }
-    }
-    return result
+    return [...Array(n*3)].map((_, i) => i).filter((n) => n % 3 !==0 && !n.toString().includes('3'))[n-1]
 }
