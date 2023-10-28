@@ -1,18 +1,14 @@
 function solution(a, b) {
-    for(let i=2; i<=a; i++){
-        if(a%i===0 && b%i===0){
-            a /= i
-            b /= i
-            i = 2
-        }
+    let i = 2, n = 1
+    for(let i=1; i<=Math.min(a,b); i++){
+        if(a%i===0 && b%i===0) n = i
     }
-    
-    let i = 2
+    b/=n
     while(i<=b){
         if(b % i === 0){
             if(i === 2 || i === 5){
-                b /= i
-                i = 2
+                b/=i
+                i=2
             }
             else return 2
         }else i++
