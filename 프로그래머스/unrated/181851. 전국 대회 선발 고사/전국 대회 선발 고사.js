@@ -1,11 +1,5 @@
 function solution(rank, attendance) {
-    const arr = rank.filter((_, i) => attendance[i]).sort((a,b) =>a-b)
+    const [a, b, c] = rank.map((x, i) => [x, i]).filter((x, i) => attendance[i]).sort((a, b) => a[0] - b[0])
     
-    let result = []
-    
-    for(let i=0; i<3; i++) result.push(rank.indexOf(arr[i]))
-    
-    return result[0] * 10000 + result[1] * 100 + result[2] * 1
-
-    
+    return 10000 * a[1] + 100 * b[1] + 1 * c[1]
 }
