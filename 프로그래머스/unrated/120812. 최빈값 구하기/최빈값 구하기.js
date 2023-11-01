@@ -1,9 +1,6 @@
 function solution(array) {
-    const arr = new Array(1000).fill(0)
-    
-    for(const el of array) arr[el]++
-
-    const max = Math.max(...arr)
-    
-    return arr.indexOf(max) === arr.lastIndexOf(max) ? arr.indexOf(max) : -1
+    let map = new Map();
+    for(const el of array) map.set(el, (map.get(el) || 0) +1)
+    map = [...map].sort((a, b) => b[1] - a[1])
+    return map.length === 1 || map[0][1] > map[1][1] ? map[0][0] : -1
 }
