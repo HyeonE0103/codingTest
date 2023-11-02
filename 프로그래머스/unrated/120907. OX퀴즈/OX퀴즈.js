@@ -2,30 +2,13 @@ function solution(quiz) {
     let result = []
     
     for(const el of quiz){
-        const modify = el.split(" ")
-        
-        switch(modify[1]){
-            case '+':
-                if((Number(modify[0]) + Number(modify[2])) === Number(modify[4])) result.push("O")
-                else result.push("X")
-                break;
-            case '-':
-                if((Number(modify[0]) - Number(modify[2])) === Number(modify[4])) result.push("O")
-                else result.push("X")
-                break;
-            case '*':
-                if((Number(modify[0]) * Number(modify[2])) === Number(modify[4])) result.push("O")
-                else result.push("X")
-                break;
-            case '/':
-                if((Number(modify[0]) / Number(modify[2])) === Number(modify[4])) result.push("O")
-                else result.push("X")
-                break;
-            case '%':
-                if((Number(modify[0]) % Number(modify[2])) === Number(modify[4])) result.push("O")
-                else result.push("X")
-                break;
-                
+        const ex = el.split(" ")
+        if(ex[1] === '+'){
+            if((Number(ex[0]) + Number(ex[2])) === Number(ex[4])) result.push("O")
+            else result.push("X")
+        }else{
+            if((Number(ex[0]) - Number(ex[2])) === Number(ex[4])) result.push("O")
+            else result.push("X")
         }
     }
     return result
