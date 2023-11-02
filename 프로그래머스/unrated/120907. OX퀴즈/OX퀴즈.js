@@ -1,15 +1,13 @@
 function solution(quiz) {
-    let result = []
-    
+    let result = [];
     for(const el of quiz){
-        const ex = el.split(" ")
-        if(ex[1] === '+'){
-            if((Number(ex[0]) + Number(ex[2])) === Number(ex[4])) result.push("O")
-            else result.push("X")
-        }else{
-            if((Number(ex[0]) - Number(ex[2])) === Number(ex[4])) result.push("O")
-            else result.push("X")
-        }
+        const [x, sign, y, _, z] = el.split(" ")
+        
+        let an = 0;
+        sum = sign === '+' ? Number(x) + Number(y) : Number(x) - Number(y)
+        
+        sum === Number(z) ? result.push("O") : result.push("X")
     }
+    
     return result
 }
