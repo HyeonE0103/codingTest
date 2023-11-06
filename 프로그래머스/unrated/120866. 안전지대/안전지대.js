@@ -1,43 +1,18 @@
 function solution(board) {
-    let result = 0
-    
-    for(let i=0; i<board.length; i++){
-        for(let j=0; j<board[0].length; j++){
-            if(board[i][j] === 1){
-                if(i !== 0){
-                    if(board[i-1][j] === 0) board[i-1][j] = 2
-                }
-                if(i !== board.length-1){
-                    if(board[i+1][j] === 0) board[i+1][j] = 2
-                }
-                if(j !== 0){
-                    if(board[i][j-1] === 0) board[i][j-1] = 2
-                }
-                if(j !== board[0].length-1){
-                    if(board[i][j+1] === 0) board[i][j+1] = 2
-                }
-                if(i !== 0 && j !== 0){
-                    if(board[i-1][j-1] === 0) board[i-1][j-1] = 2
-                }
-                if(i !== board.length-1 && j !== board[0].length-1){
-                    if(board[i+1][j+1] === 0) board[i+1][j+1] = 2
-                }
-                if(i !== 0 && j !== board[0].length-1){
-                    if(board[i-1][j+1] === 0) board[i-1][j+1] = 2
-                }
-                if(i !== board.length-1 && j !== 0){
-                    if(board[i+1][j-1] === 0) board[i+1][j-1] = 2
-                }
-                
-            }
-        }
-    }
+    for (let y = 0; y < board.length; y++)
+        for (let x = 0; x < board[0].length; x++) {
 
-    
-    for(let i=0; i<board.length; i++){
-        for(let j=0; j<board[0].length; j++){
-            if(board[i][j] === 0) result++
+            if (board[y][x] == 1) {
+                for (let i = -1; i <= 1; i++) {
+                    for (let j = -1; j <= 1; j++) {
+                        if (board[y + i]?.[x + j] === 0) 
+                            board[y + i][x + j] = 2
+                    }
+                }
+            }
+
         }
-    }
-    return result
+
+    return [...board.join()].filter(v => v == '0').length;
+
 }
