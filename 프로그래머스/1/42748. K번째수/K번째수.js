@@ -1,8 +1,6 @@
 function solution(array, commands) {
-    let result = []
-    for(const [i, j, k] of commands){
-        const n = array.slice(i-1, j).sort((a,b) => a-b)[k-1]
-        result.push(n)
-    }
-    return result
+    return commands.map(el => {
+        const [i, j, k] = el
+        return array.slice(i-1, j).sort((a,b) => a-b)[k-1]
+    })
 }
