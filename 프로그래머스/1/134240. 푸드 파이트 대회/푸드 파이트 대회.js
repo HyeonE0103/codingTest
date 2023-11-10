@@ -1,10 +1,8 @@
 function solution(food) {
-    let result = "0"
-    for(let i=food.length-1; i>0; i--){
-        const n = Math.floor(food[i]/2)
-        const s = i.toString().repeat(n)
-        result = s + result + s
+    let result = ''
+    for(let i=0; i<food.length; i++){
+        result += String(i).repeat(Math.floor(food[i]/2))
     }
     
-    return result
+    return result + '0' + [...result].reverse().join('')
 }
