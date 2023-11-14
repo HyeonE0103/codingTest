@@ -1,8 +1,16 @@
 function solution(k, score) {
-    let result = []
-    return score.reduce((acc, cur) => {
-        result.push(cur);
-        result = result.sort((a, b) => b - a).slice(0, k);
-        return [...acc, Math.min(...result)];
-    }, []);
+    const stack = []
+    return score.reduce((a,c) => {
+        if(stack.length < k) {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+        }
+        else {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+            stack.shift()
+        }
+        a.push(stack[0])
+        return a
+    },[])
 }
