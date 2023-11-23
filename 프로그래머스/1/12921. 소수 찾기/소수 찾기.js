@@ -1,5 +1,5 @@
 function solution(n) {
-    let arr = new Array(n+1).fill(true)
+    let arr = new Array(n+1).fill(true).fill(false, 0, 2)
     
     for(let i=2; i*i<=n; i++){
         if(arr[i]){
@@ -7,5 +7,5 @@ function solution(n) {
         }
     }
     
-    return arr.filter(el => el).length - 2
+    return arr.filter(el => el).length
 }
