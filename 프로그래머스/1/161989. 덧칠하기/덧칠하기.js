@@ -1,13 +1,12 @@
 function solution(n, m, section) {
-    let arr = new Array(n+1).fill(0)
-    let i = 1, result = 0
-    for(const el of section) arr[el] = 1
+    let result = 0, i = 0
     
-    while(i<=n){
-        if(arr[i] === 1){
+    for(let el of section){
+        if(i < el){
             result++
-            i += m
-        }else i++
+            i = el + m - 1
+        }
     }
+    
     return result
 }
