@@ -6,6 +6,5 @@ function solution(N, stages) {
         result.push([i, num/people])
         people -= num
     }
-    result.sort((a, b) => b[1] - a[1])
-    return result.map(x => x[0])
+    return result.sort((a, b) => b[1] - a[1]).map(x => x[0])
 }
