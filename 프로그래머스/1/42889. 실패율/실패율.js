@@ -1,14 +1,10 @@
 function solution(N, stages) {
-    let map = new Map()
-    let people = stages.length
+    let result = []
     for(let i=1; i<=N; i++){
-        let num = 0
-        for(let j=0; j<stages.length; j++){
-            if(i === stages[j]) num++
-        }
-        map.set(i, num/people)
-        people -= num
+        let people = stages.filter(x => x>=i).length
+        let num = stages.filter(x => x===i).length
+        result.push([i, num/people])
     }
-    return [...map].sort((a,b) => b[1] - a[1]).map(x=>x[0])
-    
+    result.sort((a, b) => b[1] - a[1])
+    return result.map(x => x[0])
 }
