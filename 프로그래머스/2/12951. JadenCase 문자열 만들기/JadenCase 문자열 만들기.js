@@ -1,8 +1,4 @@
 function solution(s) {
-    //길이 1이상인것을 생각해야 했음
-    return s.split(' ').map(x =>{
-        if(x.length === 0) return x
-        else if(x.length === 1) return x.toUpperCase()
-        else return x[0].toUpperCase() + x.slice(1).toLowerCase()
-    }).join(' ')
+    //공백일경우 x[0]은 undefined
+    return s.split(' ').map(x =>x.charAt(0).toUpperCase() + x.slice(1).toLowerCase()).join(' ')
 }
