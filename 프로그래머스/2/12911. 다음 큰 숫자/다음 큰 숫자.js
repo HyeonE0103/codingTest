@@ -1,11 +1,8 @@
 function solution(n) {
-    let num = n+1
-    n = n.toString(2).match(/1/g).length
+    const num = n.toString(2).match(/1/g).length
     
-    while(true){
-        let twoNum = num.toString(2).match(/1/g).length
-        if(n === twoNum) return num
-        num += 1
+    while(n++){
+        if(num === n.toString(2).match(/1/g).length) return n
     }
     
 }
