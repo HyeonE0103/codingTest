@@ -3,10 +3,10 @@ function solution(n) {
     //n칸의 경우의 수 n-1칸에서 한칸 + n-2칸에서 2칸
     
     let dp = []
-    dp[1] = 1n, dp[2] = 2n, dp[3] = 3n, dp[4] = 5n
+    dp[1] = 1, dp[2] = 2, dp[3] = 3, dp[4] = 5
     
     for(let i=5; i<=n; i++){
-        dp[i] = dp[i-1] + dp[i-2]
+        dp[i] = (dp[i-1] + dp[i-2]) % 1234567
     }
-    return dp[n] % 1234567n
+    return dp[n]
 }
