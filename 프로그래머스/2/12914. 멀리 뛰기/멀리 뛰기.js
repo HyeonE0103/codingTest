@@ -1,14 +1,12 @@
 function solution(n) {
-    let result = 0n
-    for(let i=0; i<=n; i++){
-        result += factorial(n-i) / factorial(n-2*i) / factorial(i) 
+    //피보나치 수열이 됨
+    //n칸의 경우의 수 n-1칸에서 한칸 + n-2칸에서 2칸
+    
+    let dp = []
+    dp[1] = 1n, dp[2] = 2n, dp[3] = 3n, dp[4] = 5n
+    
+    for(let i=5; i<=n; i++){
+        dp[i] = dp[i-1] + dp[i-2]
     }
-    
-    return n === 1 ? 1 : result % 1234567n
-}
-    
-function factorial(n){
-    let num = 1n
-    for(let i=2n; i<=BigInt(n); i++) num *= i
-    return num <= 0n ? 1 : num 
+    return dp[n] % 1234567n
 }
