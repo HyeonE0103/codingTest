@@ -1,15 +1,10 @@
 function solution(elements) {
-    let set = new Set()
-    let len = elements.length
-    for(let i=1; i<=len; i++){
+    const len = elements.length
+    const set = new Set()
+    for(let i=0; i<len; i++){
+        let num = 0
         for(let j=0; j<len; j++){
-            let num = 0
-            for(let k=j; k<j+i; k++){
-                if(k<len) num += elements[k]
-                else{
-                    num += elements[k-len]
-                }
-            }
+            num += i+j >= len ? elements[i+j-len] : elements[i+j]
             set.add(num)
         }
     }
