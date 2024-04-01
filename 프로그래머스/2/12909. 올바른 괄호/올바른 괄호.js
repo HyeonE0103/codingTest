@@ -1,7 +1,7 @@
 function solution(s){
     let n = 0
     
-    for(let i=0; i<s.length; i++){
+    for(let i=0; i<s.length; i+=1){
         n += s[i] === '(' ? 1 : -1
         if(n < 0) return false
     }
