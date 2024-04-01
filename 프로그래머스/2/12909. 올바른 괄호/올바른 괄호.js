@@ -1,14 +1,10 @@
 function solution(s){
-    let stack = []
-    let arr = []
+    let n = 0
     
     for(let i=0; i<s.length; i++){
-        if(s[i] === '(') stack.push('(')
-        else{
-            if(stack.length === 0) return false
-            else stack.pop()
-        }
+        n += s[i] === '(' ? 1 : -1
+        if(n < 0) return false
     }
-    return stack.length === 0 ? true : false
     
+    return n === 0 ? true : false
 }
