@@ -1,8 +1,14 @@
 function solution(s){
-    let num = 0
-    for(let el of s){
-        num += el === "(" ? 1 : -1
-        if(num < 0) return false
+    let stack = []
+    let arr = []
+    
+    for(let i=0; i<s.length; i++){
+        if(s[i] === '(') stack.push('(')
+        else{
+            if(stack.length === 0) return false
+            else stack.pop()
+        }
     }
-    return num === 0 ? true : false
+    return stack.length === 0 ? true : false
+    
 }
