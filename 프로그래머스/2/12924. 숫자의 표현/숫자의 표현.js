@@ -1,14 +1,15 @@
 function solution(n) {
-    let result = 1
-    for(let i=1; i<=n/2; i++){
+    let result = 0
+    
+    for(let i=1; i<=n/2; i+=1){
         let num = 0
-        for(let j=i; j<=n; j++){
+        for(let j=i; j<n; j+=1){
             num += j
-            if(num >= n){
-                if(num === n) result+=1
-                break
+            if(n <= num){
+                if(n === num) result += 1
+                break;
             }
         }
     }
-    return result
+    return result+=1
 }
