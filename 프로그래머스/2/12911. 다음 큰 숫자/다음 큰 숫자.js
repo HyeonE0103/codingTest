@@ -1,8 +1,3 @@
-function solution(n) {
-    const num = n.toString(2).match(/1/g).length
-    
-    while(n+1){
-        if((n+1).toString(2).match(/1/g).length === num) return n+1
-        else n = n+1
-    }
+function solution(n, a=n+1) {
+    return n.toString(2).match(/1/g).length == a.toString(2).match(/1/g).length ? a : solution(n,a+1);
 }
