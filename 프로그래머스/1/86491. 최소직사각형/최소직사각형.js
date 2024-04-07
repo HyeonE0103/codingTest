@@ -1,10 +1,11 @@
 function solution(sizes) {
-    let [w,h] = [0,0]
+    let [w, h] = [0, 0]
     
-    for(let i=0; i<sizes.length; i++){
-        if(w < Math.max(...sizes[i])) w = Math.max(...sizes[i])
-        if(h < Math.min(...sizes[i])) h = Math.min(...sizes[i])
-    }
+    sizes.forEach(n => {
+        const [a, b] = n.sort((a,b) => a-b)
+        if(a > w) w = a
+        if(b > h) h = b
+    })
     
-    return w*h
+    return w * h
 }
