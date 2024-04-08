@@ -1,19 +1,9 @@
 function solution(s, n) {
+    const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'
     let result = ''
     
-    for(let i=0; i<s.length; i++){
-        if(s[i] === ' ') result += ' '
-        else{
-            let l = s[i].charCodeAt() + n
-                
-            if(s[i] === s[i].toUpperCase()){
-                if(l > 90) l -= 26
-            }else{
-                if(l > 122) l -= 26
-            }
-            
-            result += String.fromCharCode(l)
-        }
-    }
+    for(let i=0; i<s.length; i++)
+        result += s[i] === ' ' ? ' ' : c[c.indexOf(s[i])+n]
+
     return result
 }
