@@ -1,4 +1,6 @@
 function solution(s){
+    if(s.length % 2 !== 0) return 0
+    
     let stack = []
     
     for(let i=0; i<s.length; i+=1){
