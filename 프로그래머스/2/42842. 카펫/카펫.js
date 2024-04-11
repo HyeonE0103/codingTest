@@ -1,4 +1,4 @@
 function solution(brown, yellow) {
-    const x = (4+brown+Math.sqrt(Math.pow(4+brown,2)-16*(brown+yellow)))/4
-    return [x, (brown+yellow)/x]
+    const width = (brown+4+(Math.sqrt(Math.pow(brown+4,2)-4*4*(brown+yellow))))/4
+    return height = [width, (brown+yellow)/width]
 }
