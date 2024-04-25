@@ -8,5 +8,6 @@ function solution(numbers) {
         }
     }
     
-    return Array.from(set).sort((a,b) => a-b)
+    // return Array.from(set).sort((a,b) => a-b)
+    return [...set].sort((a,b) => a-b)
 }
