@@ -1,5 +1,5 @@
 function solution(food) {
-    const foods = food.reduce((acc,cur,i) => acc += (''+i).repeat(parseInt(cur/2)),'')
+    const line = food.reduce((acc,cur,i) => acc += (''+i).repeat(parseInt(cur/2)),'')
     
-    return foods + '0' + [...foods].reverse().join('')
+    return line + '0' + line.split('').reverse().join('')
 }
