@@ -1,8 +1,5 @@
 function solution(food) {
-    let result = ''
-    for(let i=0; i<food.length; i++){
-        result += String(i).repeat(Math.floor(food[i]/2))
-    }
+    const foods = food.reduce((acc,cur,i) => acc += (''+i).repeat(parseInt(cur/2)),'')
     
-    return result + '0' + [...result].reverse().join('')
+    return foods + '0' + [...foods].reverse().join('')
 }
