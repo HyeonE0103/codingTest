@@ -1,13 +1,14 @@
 function solution(n, words) {
-    let set = new Set()
-    set.add(words[0])
+    let set = new Set().add(words[0])
     
     for(let i=1; i<words.length; i+=1){
-        if(words[i][0] != words[i-1][words[i-1].length-1])
+        let [pre, cur] = [words[i-1], words[i]]
+        
+        if ((pre[pre.length - 1] != cur[0]) || (set.has(cur)))
             return [i%n+1, Math.floor(i/n)+1]
-        if(set.has(words[i])) return [i%n+1, Math.floor(i/n)+1]
-        else set.add(words[i])
+        
+        set.add(cur)
     }
     
-    return [0,0]
+    return [0, 0]
 }
