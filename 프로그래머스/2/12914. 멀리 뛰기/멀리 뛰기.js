@@ -1,9 +1,13 @@
 function solution(n) {
-    let d = [0,1,2,3]
-    
-    for(let i=4; i<=n; i+=1){
-        d[i] = (d[i-1] + d[i-2]) % 1234567
+    if (n <= 2) return n;
+
+    let a = 1, b = 2, c;
+
+    for (let i = 3; i <= n; i++) {
+        c = (a + b) % 1234567;
+        a = b;
+        b = c;
     }
-    
-    return d[n]
+
+    return b;
 }
