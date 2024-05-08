@@ -1,11 +1,10 @@
 function solution(a, b, n) {
     let result = 0
-    
-    while(n>=a){
+
+    while(n >= a){
         result += Math.floor(n / a) * b
-        n = Math.floor(n / a) * b + (n % a)
+        n = Math.floor(n / a) * b + Math.floor(n % a)
     }
-    
-    return result 
-    
+
+    return result
 }
