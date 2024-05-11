@@ -2,17 +2,14 @@ function solution(k, tangerine) {
     let kind = new Map()
     let result = 0
     
-    for(let i=0; i<tangerine.length; i+=1){
-        kind.has(tangerine[i]) ? kind.set(tangerine[i], kind.get(tangerine[i])+1) : kind.set(tangerine[i], 1)
-    }
+    for (let size of tangerine)
+        kind.set(size, (kind.get(size) || 0) + 1)
     
-    kind = Array.from(kind).sort((a,b) => b[1] - a[1])
+    const count = [...kind.values()].sort((a, b) => b - a)
     
-    for(let i=0; i<kind.length; i+=1){
-        if(k <= 0) break
-        k -= kind[i][1]
+    for (let n of count){
+        k -= n
         result += 1
+        if(k <= 0) return result
     }
-    
-    return result
 }
