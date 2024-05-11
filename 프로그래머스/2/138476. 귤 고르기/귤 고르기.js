@@ -1,13 +1,18 @@
 function solution(k, tangerine) {
+    let kind = new Map()
     let result = 0
-    let map = new Map()
     
-    for(const el of tangerine) map.set(el, (map.get(el)||0)+1)
-    map = [...map].sort((a,b)=>b[1]-a[1])
-    
-    for(let i=0; i<map.length; i++){
-        k -= map[i][1]
-        if(k<=0) return result+1
-        else result += 1
+    for(let i=0; i<tangerine.length; i+=1){
+        kind.has(tangerine[i]) ? kind.set(tangerine[i], kind.get(tangerine[i])+1) : kind.set(tangerine[i], 1)
     }
+    
+    kind = Array.from(kind).sort((a,b) => b[1] - a[1])
+    
+    for(let i=0; i<kind.length; i+=1){
+        if(k <= 0) break
+        k -= kind[i][1]
+        result += 1
+    }
+    
+    return result
 }
