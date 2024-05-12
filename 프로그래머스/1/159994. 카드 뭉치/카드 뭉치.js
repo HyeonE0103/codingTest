@@ -1,8 +1,12 @@
 function solution(cards1, cards2, goal) {
-    for(const el of goal){
-        if(cards1[0] === el) cards1.shift();
-        else if(cards2[0] === el) cards2.shift();
-        else return 'No'
+    cards1.reverse()
+    cards2.reverse()
+    
+    for(let i=0; i<goal.length; i+=1){
+        if(cards1[cards1.length-1] === goal[i]) cards1.pop()
+        else if(cards2[cards2.length-1] === goal[i]) cards2.pop()
+        else return "No"
     }
-    return 'Yes'
+    
+    return "Yes"
 }
