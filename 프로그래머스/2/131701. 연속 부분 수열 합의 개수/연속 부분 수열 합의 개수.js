@@ -1,12 +1,13 @@
 function solution(elements) {
-    const len = elements.length
-    const set = new Set()
-    for(let i=0; i<len; i++){
-        let num = 0
-        for(let j=0; j<len; j++){
-            num += i+j >= len ? elements[i+j-len] : elements[i+j]
-            set.add(num)
+    const dElements = [...elements, ...elements]
+    let numSet = new Set()
+    
+    for(let i=0; i<elements.length; i+=1){
+        let sum = 0
+        for(let j=i; j<elements.length+i; j+=1){
+            sum += dElements[j]
+            numSet.add(sum)
         }
     }
-    return set.size
+    return numSet.size
 }
