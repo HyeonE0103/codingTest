@@ -2,6 +2,8 @@ function solution(s) {
     let result = 0
     const double = s + s, len = s.length
     
+    if(len % 2 === 1) return 0
+    
     for(let i=0; i<len; i+=1){
         result += isCorrect(double.slice(i, len+i))
     }
@@ -14,10 +16,9 @@ function isCorrect(s){
     const pair = {']' : '[', ')' : '(', '}': '{'}
 
     for(let i=0; i<s.length; i+=1){
-        if(s[i] === '[' || s[i] === '(' || s[i] === '{')
-            stack.push(s[i])
+        if(s[i] === '[' || s[i] === '(' || s[i] === '{') stack.push(s[i])
         else{
-            let c = stack.pop()
+            const c = stack.pop()
             if(c !== pair[s[i]] || c == null) return 0
         }
     }
