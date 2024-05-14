@@ -1,22 +1,26 @@
 function solution(s) {
     let result = 0
-    const mapping = {')':'(', '}':'{', ']':'['}
+    const double = s + s, len = s.length
     
-    for(let i=0; i<s.length; i++){
-        const stack = []
-        let flag = true
-        for(let j=0; j<s.length; j++){
-            if(s[j] === '(' || s[j] === '{' || s[j] === '[') stack.push(s[j])
-            else{
-                sp = stack.pop()
-                if(sp !== mapping[s[j]]){
-                    flag = false
-                    break
-                }
-            }
-        }
-        if(flag && stack.length === 0) result += 1
-        s = s.slice(1) + s[0]
+    for(let i=0; i<len; i+=1){
+        result += isCorrect(double.slice(i, len+i))
     }
+    
     return result
+}
+    
+function isCorrect(s){
+    let stack = []
+    const pair = {']' : '[', ')' : '(', '}': '{'}
+
+    for(let i=0; i<s.length; i+=1){
+        if(s[i] === '[' || s[i] === '(' || s[i] === '{')
+            stack.push(s[i])
+        else{
+            let c = stack.pop()
+            if(c !== pair[s[i]] || c == null) return 0
+        }
+    }
+    
+    return stack.length === 0 ? 1 : 0
 }
