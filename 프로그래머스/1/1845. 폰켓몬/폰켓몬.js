@@ -1,5 +1,6 @@
 function solution(nums) {
-    const n = nums.length / 2
-    const set = new Set(nums)
-    return set.size >= n ? n : set.size
+    const half = nums.length/2
+    const max = [...new Set(nums)].length
+    
+    return max <= half ? max : half
 }
