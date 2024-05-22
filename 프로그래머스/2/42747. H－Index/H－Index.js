@@ -1,5 +1,6 @@
 function solution(citations) {
-    const hIndex = citations.sort((a,b)=>b-a).map((n,i) => n <= i ? n : i+1)
-    
-    return Math.max(...hIndex)
+    return citations.sort((a,b)=>b-a).reduce((acc,cur,i) => {
+        const num = cur <= i+1 ? cur : i+1
+        return acc < num ? num : acc 
+    },0)
 }
